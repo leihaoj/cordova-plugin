@@ -1,0 +1,4 @@
+<resources>
+    <string name="accessibility_service_label">猫眼数字人</string>
+    <string name="accessibility_service_description">音频焦点获取</string>
+</resources>

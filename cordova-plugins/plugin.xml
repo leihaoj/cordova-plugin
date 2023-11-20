@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-customer" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>CustomPlugin</name>
+    <js-module name="CustomPlugin" src="www/CustomPlugin.js">
+        <clobbers target="cordova.plugins.CustomPlugin" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CustomPlugin">
+                <param name="android-package" value="cordova.plugin.customer.CustomPlugin" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <!-- 获取设备信息 -->
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <!-- 获取设备信息 -->
+            <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+            <!-- 加入白名单 -->
+            <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+        </config-file>
+        <source-file src="src/android/CustomPlugin.java"
+            target-dir="src/cordova-plugin-customer/CustomPlugin" />
+        <source-file src="src/android/AudioPlugin.java"
+            target-dir="src/cordova-plugin-customer/CustomPlugin" />
+        <source-file src="src/android/MyAccessibilityService.java"
+            target-dir="src/cordova-plugin-customer/CustomPlugin" />
+        <source-file src="src/android/DevicePlugin.java"
+            target-dir="src/cordova-plugin-customer/CustomPlugin" />
+
+        <!-- 引入xml -->
+        <resource-file src="res/values/strings.xml"
+            target="res/values/custom_accessibility_strings.xml" />
+        <resource-file src="res/accessibility_service_config.xml"
+            target="res/xml/accessibility_service_config.xml" />
+
+
+    </platform>
+</plugin>
